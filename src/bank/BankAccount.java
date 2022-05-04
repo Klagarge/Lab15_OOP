@@ -8,17 +8,26 @@ public abstract class BankAccount {
         return balance;
     }
     public void deposit(double amount){
+        if(amount<0){
+            error("cannot deposit this amount !");
+            return;
+        } 
         balance += amount;
     }
     public boolean withdraw(double amount){
         if(balance<amount){
-            System.out.println("Problem : cannot withdraw that amount");
-            return false;
+            return error("cannot withdraw this amount !");
         } 
-        
         balance -= amount;
         return true;
     }
+
+    protected boolean error(String text){
+        System.out.println("Problem : " + text);
+        return false;
+    }
+    
+
 
     @Override
     public String toString() {

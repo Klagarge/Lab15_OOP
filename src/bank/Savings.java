@@ -5,13 +5,26 @@ import java.util.Date;
 
 public class Savings extends BankAccount{
     private double interestRate;
-    Savings(String owner, double amount, double interestRate){
+    protected Savings(String owner, double amount, double interestRate){
+        if(owner==null){
+            error("An account have to be an owner");
+            return;
+        }
+        if(amount<0) {
+            error("A Saving account can't have a negative amount");
+            return;
+        }
+        if(interestRate<0){
+            error("cannot have interest negative");
+            return;
+        }
         this.owner = owner;
         this.balance = amount;
         this.interestRate = interestRate;
     }
-    public double calcInterest(Date a, Date b){
-        int day = DateUtils.nDays(a, b);
-        return interestRate * (day/360.0);
+    
+    protected double calcInterest(Date a, Date b){
+        double days = DateUtils.nDays(a, b);
+        return balance * interestRate * (days/360.0);
     }
 }

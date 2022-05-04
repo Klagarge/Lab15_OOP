@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch BankController",
+            "request": "launch",
+            "mainClass": "bank.BankController",
+            "projectName": "Lab15_OOP_90898795",
+            "vmArgs": "-enableassertions"
+        }
+    ]
+}
