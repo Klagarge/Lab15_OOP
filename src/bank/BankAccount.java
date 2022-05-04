@@ -11,7 +11,10 @@ public abstract class BankAccount {
         balance += amount;
     }
     public boolean withdraw(double amount){
-        if(balance<amount) return false;
+        if(balance<amount){
+            System.out.println("Problem : cannot withdraw that amount");
+            return false;
+        } 
         
         balance -= amount;
         return true;
