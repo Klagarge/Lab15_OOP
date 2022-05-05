@@ -2,6 +2,14 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch GUI1",
+            "request": "launch",
+            "mainClass": "GUI.GUI1",
+            "projectName": "Lab15_OOP_90898795",
+            "liveshare.allowGuestDebugControl": true
+        },
+        {
+            "type": "java",
             "name": "Launch BankController",
             "request": "launch",
             "mainClass": "bank.BankController",
@@ -10,3 +18,4 @@
         }
     ]
 }
+
