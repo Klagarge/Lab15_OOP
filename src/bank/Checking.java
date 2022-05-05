@@ -1,15 +1,15 @@
 package bank;
 
 /**
- * Create a bank account with specification :
- * - 
+ * Create a bank account with specification : compte courant
+ *      - you can set a minimum Balance
  */
 public class Checking extends BankAccount{
     private double minBalance;
 
     /**
-     * 
-     * @param owner
+     * Create a new account checking with all parameters
+     * @param owner 
      * @param amount
      * @param minBalance
      */
@@ -32,7 +32,7 @@ public class Checking extends BankAccount{
     }
 
     /**
-     * 
+     * Set the minimum Balance
      * @param minBalance
      */
     protected void setMinBalance(double minBalance) {
@@ -44,15 +44,16 @@ public class Checking extends BankAccount{
     }
 
     /**
-     * 
-     * @return
+     * Get the minimum balance
+     * @return the minimum balance
      */
     public double getMinBalance() {
         return minBalance;
     }
 
+
     /**
-     * 
+     * Specification : you can withdraw an amount to a minimum balance
      */
     @Override
     public boolean withdraw(double amount){
