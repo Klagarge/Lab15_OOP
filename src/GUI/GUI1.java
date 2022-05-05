@@ -2,7 +2,6 @@ package GUI;
 
 import javax.swing.*;
 
-import java.awt.AWTEvent;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -10,9 +9,7 @@ import java.awt.event.ActionListener;
 
 public class GUI1 extends JFrame {
     public static void main(String[] args) {
-        GUI1 f1 = new GUI1();
-        
-        
+        new GUI1();
     }
 
     GUI1(){

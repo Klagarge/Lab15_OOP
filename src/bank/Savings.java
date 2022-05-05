@@ -3,8 +3,18 @@ package bank;
 import hevs.utils.DateUtils;
 import java.util.Date;
 
+/**
+ * 
+ */
 public class Savings extends BankAccount{
     private double interestRate;
+
+    /**
+     * 
+     * @param owner
+     * @param amount
+     * @param interestRate
+     */
     protected Savings(String owner, double amount, double interestRate){
         if(owner==null){
             error("An account have to be an owner");
@@ -23,6 +33,12 @@ public class Savings extends BankAccount{
         this.interestRate = interestRate;
     }
     
+    /**
+     * 
+     * @param a
+     * @param b
+     * @return
+     */
     protected double calcInterest(Date a, Date b){
         double days = DateUtils.nDays(a, b);
         return balance * interestRate * (days/360.0);
