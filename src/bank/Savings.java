@@ -4,16 +4,17 @@ import hevs.utils.DateUtils;
 import java.util.Date;
 
 /**
- * 
+ * Create a bank account with specification : compte épargne
+ *      - you have some interest for the money you have on this account
  */
 public class Savings extends BankAccount{
     private double interestRate;
 
     /**
-     * 
-     * @param owner
-     * @param amount
-     * @param interestRate
+     * Create a new saving account with all parameters
+     * @param owner The people who have the bank account
+     * @param amount The amount on this bank account at the time of opening
+     * @param interestRate the interest rate for this account
      */
     protected Savings(String owner, double amount, double interestRate){
         if(owner==null){
@@ -34,10 +35,10 @@ public class Savings extends BankAccount{
     }
     
     /**
-     * 
-     * @param a
-     * @param b
-     * @return
+     * Calculates how much interest is charged over a given period of time
+     * @param a Initial date for counting interest
+     * @param b Final date for counting interest
+     * @return The interest earned during the period
      */
     protected double calcInterest(Date a, Date b){
         double days = DateUtils.nDays(a, b);
