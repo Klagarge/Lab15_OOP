@@ -9,9 +9,9 @@ public class Checking extends BankAccount{
 
     /**
      * Create a new account checking with all parameters
-     * @param owner 
-     * @param amount
-     * @param minBalance
+     * @param owner The people who have the bank account
+     * @param amount The amount on this bank account
+     * @param minBalance the minimum value the value can go. without blocking a withdraw
      */
     protected Checking(String owner, double amount, double minBalance){
         if(owner==null){
@@ -33,7 +33,7 @@ public class Checking extends BankAccount{
 
     /**
      * Set the minimum Balance
-     * @param minBalance
+     * @param minBalance The minimum balance you want to set
      */
     protected void setMinBalance(double minBalance) {
         if(minBalance>0){
@@ -42,6 +42,7 @@ public class Checking extends BankAccount{
         }
         this.minBalance = minBalance;
     }
+
 
     /**
      * Get the minimum balance
