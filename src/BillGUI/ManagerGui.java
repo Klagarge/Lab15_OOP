@@ -30,7 +30,7 @@ public class ManagerGui extends JFrame{
 
         //Create and add header
         logo = new ImageIcon(logoFilePath);
-        Jlogo = new JLabel(name);
+        Jlogo = new JLabel(logo);
         Jname = new JLabel(name);
         this.add(Jname);
         this.add(Jlogo);
@@ -48,8 +48,8 @@ public class ManagerGui extends JFrame{
         }
 
         //Create and add button 
-        JButton ButtonBill = new JButton();
-        JButton ButtonQuit = new JButton();
+        JButton ButtonBill = new JButton("Show bill");
+        JButton ButtonQuit = new JButton("Quit");
         this.add(ButtonBill);
         this.add(ButtonQuit);
 
@@ -58,7 +58,9 @@ public class ManagerGui extends JFrame{
     }
 
 }
-
+/**
+ * 
+ */
 class Row {
     JLabel label;
     JSpinner spinner;
@@ -69,5 +71,28 @@ class Row {
     }
 
 }
+/**
+ * 
+ */
+class ButtonQuitListener implements ActionListener {
+	JFrame Jf;
+    /**
+     * 
+     *  @param Jf
+     */
+    ButtonQuitListener(JFrame Jf){
+        this.Jf = Jf;
+	}
+    /**
+     * 
+     * @param e
+     */
+    @Override
+    public void actionPerformed(ActionEvent e){
+        Jf.dispose();
+    }
+    
+}
+
 
 
