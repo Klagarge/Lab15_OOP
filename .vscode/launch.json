@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch HesSoGarage",
+            "request": "launch",
+            "mainClass": "BillGUI.HesSoGarage",
+            "projectName": "Lab15_OOP_79fdc875"
+        },
+        {
+            "type": "java",
             "name": "Launch GUI2",
             "request": "launch",
             "mainClass": "GUI.GUI2",
