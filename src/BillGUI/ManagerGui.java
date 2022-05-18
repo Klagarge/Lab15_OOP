@@ -8,19 +8,23 @@ import javax.swing.*;
 /**
  * 
  */
-public class ManagerGui extends JFrame{
+public class ManagerGui extends JFrame {
     GridLayout grid;
     JLabel Jname;
     JLabel Jlogo;
     ImageIcon logo;
+    String buttonNameQuit = "Quit";
+    String buttonNameBill = "Show bill";
+    
 
     Vector<Row> prestations = new Vector<>();
+    Vector<Integer> valuePrestations = new Vector<Integer>();
     
 
     /**
-     *
+     * 
      */
-    public ManagerGui(String name, String logoFilePath, String[] prestationsName){
+    public ManagerGui(String name, String logoFilePath, String[] prestationsName, GarageManager garageManager){
         this.setSize(400,600);
         this.setLocation(600,200);
         this.setVisible(true);
@@ -39,7 +43,6 @@ public class ManagerGui extends JFrame{
         //Create rows for prestations
         for(String s : prestationsName){
             prestations.add(new Row(s));
-            
         }
         //add rows on the Jframe
         for(Row r : prestations){
@@ -48,16 +51,44 @@ public class ManagerGui extends JFrame{
         }
 
         //Create and add button 
-        JButton ButtonBill = new JButton("Show bill");
-        JButton ButtonQuit = new JButton("Quit");
-        this.add(ButtonBill);
-        this.add(ButtonQuit);
+        JButton buttonBill = new JButton(buttonNameBill);
+        buttonBill.addActionListener(new ButtonListenerManager(valuePrestations, prestations, garageManager){
+            /**
+             * 
+             */
+            @Override
+            public void actionPerformed(ActionEvent e){
+                //Get the value of each spinner
+                for (int i = 0; i < prestations.size(); i++) {
+                    int value = (int)prestations.elementAt(i).spinner.getValue();
+                    for (int j = 0; j < value; j++) {
+                        valuePrestations.add(i);
+                    }
+                    System.out.println(value);
+                }
+                
+                new BillGui(garageManager.generateHTMLBill(valuePrestations));
+            };
+        });
 
-
+        JButton buttonQuit = new JButton(buttonNameQuit);
+        buttonQuit.addActionListener(new ButtonListenerManager(this){
+            /**
+             * 
+             */
+            @Override
+            public void actionPerformed(ActionEvent e){
+                Jf.dispose();
+            };
+        });
         
-    }
+        this.add(buttonBill);
+        this.add(buttonQuit);
 
+    }
 }
+
+
 /**
  * 
  */
@@ -69,30 +100,32 @@ class Row {
         label = new JLabel(title);
         spinner = new JSpinner();
     }
-
 }
+
 /**
  * 
  */
-class ButtonQuitListener implements ActionListener {
-	JFrame Jf;
-    /**
-     * 
-     *  @param Jf
-     */
-    ButtonQuitListener(JFrame Jf){
+class ButtonListenerManager implements ActionListener {
+    JFrame Jf;
+    Vector<Integer> valuePrestations;
+    Vector<Row> prestations;
+    GarageManager garageManager;
+
+    ButtonListenerManager(Vector<Integer> valuePrestations, Vector<Row> prestations, GarageManager garageManager){
+        this.valuePrestations = valuePrestations;
+        this.prestations = prestations;
+        this.garageManager = garageManager;
+    };
+
+    ButtonListenerManager(JFrame Jf){
         this.Jf = Jf;
-	}
-    /**
-     * 
-     * @param e
-     */
-    @Override
-    public void actionPerformed(ActionEvent e){
-        Jf.dispose();
     }
-    
+
+    @Override
+    public void actionPerformed(ActionEvent e){};
+
 }
+
 
 
 
