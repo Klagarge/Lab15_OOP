@@ -1,4 +1,5 @@
 package GUI;
+//TODO mettre commentaire
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
