@@ -5,5 +5,11 @@
         "lib/**/*.jar"
     ],
     "liveshare.shareExternalFiles": false,
-    "liveshare.allowGuestDebugControl": true
+    "liveshare.allowGuestDebugControl": true,
+    "cSpell.words": [
+        "Jframe",
+        "Jlogo",
+        "Jname",
+        "Mudry"
+    ]
 }
