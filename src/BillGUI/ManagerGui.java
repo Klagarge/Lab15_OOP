@@ -34,7 +34,8 @@ public class ManagerGui extends JFrame {
         this.setLayout(grid);
 
         //Create and add header
-        //logo = new ImageIcon(logoFilePath);
+        logo = new ImageIcon(logoFilePath);
+        Jlogo = new JLabel(logo);
         Jname = new JLabel(name);
         this.add(Jname);
         
