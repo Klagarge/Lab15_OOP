@@ -15,6 +15,7 @@ public class ManagerGui extends JFrame {
     ImageIcon logo;
     String buttonNameQuit = "Quit";
     String buttonNameBill = "Show bill";
+    double ratio = 207.0/163.0;
     
 
     Vector<Row> prestations = new Vector<>();
@@ -33,10 +34,13 @@ public class ManagerGui extends JFrame {
         this.setLayout(grid);
 
         //Create and add header
-        logo = new ImageIcon(logoFilePath);
-        Jlogo = new JLabel(logo);
+        //logo = new ImageIcon(logoFilePath);
         Jname = new JLabel(name);
         this.add(Jname);
+        
+        //logo = new ImageIcon(new ImageIcon(logoFilePath).getImage().getScaledInstance(207, 163, Image.SCALE_DEFAULT));
+        //Jlogo = new JLabel(logo);
+        Jlogo = resize(Jname, logoFilePath);
         this.add(Jlogo);
 
 
@@ -85,6 +89,16 @@ public class ManagerGui extends JFrame {
         this.add(buttonBill);
         this.add(buttonQuit);
 
+    }
+
+    private JLabel resize(JLabel Jlogo, String logoFilePath){
+        //TODO put in listener for resize when frame is resize.
+        int width = (int)Jlogo.getSize().getWidth();
+        int height = (int)Jlogo.getSize().getHeight();
+        height = height > 0 ? height:65;
+        System.out.println(width + "x"+ height);
+        ImageIcon logo = new ImageIcon(new ImageIcon(logoFilePath).getImage().getScaledInstance((int) (height*ratio), height, Image.SCALE_DEFAULT));
+        return new JLabel(logo);
     }
 }
 
