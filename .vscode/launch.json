@@ -2,9 +2,17 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch CompleteBankController",
+            "request": "launch",
+            "mainClass": "bank.CompleteBankController",
+            "projectName": "Lab15_OOP_90898795",
+            "vmArgs": "-enableassertions"
+        },
+        {
+            "type": "java",
             "name": "Launch BankController",
             "request": "launch",
-            "mainClass": "bank.BankController",
+            "mainClass": "bank.CompleteBankController",
             "projectName": "Lab15_OOP_fc166bd2",
             "vmArgs": "-enableassertions"
         },
@@ -57,8 +65,7 @@
             "mainClass": "GUI.GUI1",
             "projectName": "Lab15_OOP_90898795",
             "liveshare.allowGuestDebugControl": true
-        },
-
+        }
     ]
 }
 

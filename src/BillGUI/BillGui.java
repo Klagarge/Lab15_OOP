@@ -35,17 +35,18 @@ public class BillGui extends JFrame{
 
         //Create the button for print the bill
         JButton buttonPrint = new JButton("Print");
-        buttonPrint.addActionListener(new ButtonListenerBill(this) {
-            //TODO : describe the prozess to print and resize the bill
-            /**
-             * 
-             */
+        buttonPrint.addActionListener(new ButtonListenerBill() {
+        
             @Override
             public void actionPerformed(ActionEvent e){
 
+                // Create a new printer Job
                 PrinterJob pj = PrinterJob.getPrinterJob();
                 pj.setJobName("Bill");
 
+                // Create a printable element from a JPanel. This method is just a copy, it resize but isn't perfect.
+                // It's just a first test. Should be improved
+                // TODO : improve this method
                 Printable printable = new Printable() {    
                     public int print(Graphics pg, PageFormat pf, int pageNum){
                         if (pageNum > 0) return Printable.NO_SUCH_PAGE;
@@ -63,24 +64,29 @@ public class BillGui extends JFrame{
                     }
                 };
 
+                // Create and set a A4 paper
                 Paper paper = new Paper();
                 paper.setImageableArea(0, 0,2480,3508);
                 paper.setSize(2480,3508);
-            
                 PageFormat format = new PageFormat();
                 format.setPaper(paper);
                 format.setOrientation(PageFormat.PORTRAIT);
 
+                // Set all settings about the printing function
                 pj.setPrintable (printable, format);
 
+                // Launch the printer dialog for printing.
                 if (pj.printDialog() == false) return;
-
                 try {
                     pj.print();
                 } catch (PrinterException ex) {}
             }
         });
+
+
         this.add(buttonPrint);
+
+        
     }
 
 }
@@ -89,14 +95,6 @@ public class BillGui extends JFrame{
  * listener to detect the button to print the bill
  */
 class ButtonListenerBill implements ActionListener {
-    JFrame Jf;
-    /**
-     * initialize the listener 
-     * @param Jf //TODO : do we always use the JFrame ?
-     */
-    ButtonListenerBill(JFrame Jf){
-        this.Jf = Jf;
-    }
     @Override
     public void actionPerformed(ActionEvent e){};
 }
