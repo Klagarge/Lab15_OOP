@@ -5,6 +5,13 @@
             "name": "Launch HesSoGarage",
             "request": "launch",
             "mainClass": "BillGUI.HesSoGarage",
+            "projectName": "Lab15_OOP_90898795"
+        },
+        {
+            "type": "java",
+            "name": "Launch HesSoGarage",
+            "request": "launch",
+            "mainClass": "BillGUI.HesSoGarage",
             "projectName": "Lab15_OOP_79fdc875"
         },
         {
