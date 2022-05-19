@@ -1,5 +1,4 @@
 package GUI;
-//TODO mettre commentaire
 
 import javax.swing.*;
 

@@ -6,7 +6,7 @@ import java.util.Vector;
 import javax.swing.*;
 
 /**
- * 
+ * HMI for calculate the bill
  */
 public class ManagerGui extends JFrame {
     GridLayout grid;
@@ -22,13 +22,17 @@ public class ManagerGui extends JFrame {
     
 
     /**
-     * 
+     * initialize the window
+     * @param name name of the garage
+     * @param logoFilePath file of the garage's logo
+     * @param prestationsName array with the name of the prestations
+     * @param garageManager a new garage application
      */
     public ManagerGui(String name, String logoFilePath, String[] prestationsName, GarageManager garageManager){
+        //set up the window with the layout
         this.setSize(400,600);
         this.setLocation(600,200);
         this.setVisible(true);
-
         grid = new GridLayout(prestationsName.length + 2,2);
         this.setLayout(grid);
 
@@ -38,7 +42,6 @@ public class ManagerGui extends JFrame {
         Jname = new JLabel(name);
         this.add(Jname);
         this.add(Jlogo);
-
 
         //Create rows for prestations
         for(String s : prestationsName){
@@ -54,7 +57,7 @@ public class ManagerGui extends JFrame {
         JButton buttonBill = new JButton(buttonNameBill);
         buttonBill.addActionListener(new ButtonListenerManager(valuePrestations, prestations, garageManager){
             /**
-             * 
+             * add the number of prestations when it is used
              */
             @Override
             public void actionPerformed(ActionEvent e){
@@ -66,7 +69,7 @@ public class ManagerGui extends JFrame {
                     }
                     System.out.println(value);
                 }
-                
+                //Create the bill
                 new BillGui(garageManager.generateHTMLBill(valuePrestations));
             };
         });
@@ -74,7 +77,7 @@ public class ManagerGui extends JFrame {
         JButton buttonQuit = new JButton(buttonNameQuit);
         buttonQuit.addActionListener(new ButtonListenerManager(this){
             /**
-             * 
+             * quit the window
              */
             @Override
             public void actionPerformed(ActionEvent e){
@@ -84,18 +87,16 @@ public class ManagerGui extends JFrame {
         
         this.add(buttonBill);
         this.add(buttonQuit);
-
     }
 }
 
 
 /**
- * 
+ * Create a row in the windows with a label and a spinner
  */
 class Row {
     JLabel label;
     JSpinner spinner;
-
     Row(String title){
         label = new JLabel(title);
         spinner = new JSpinner();
@@ -103,7 +104,7 @@ class Row {
 }
 
 /**
- * 
+ * listener for detect the button
  */
 class ButtonListenerManager implements ActionListener {
     JFrame Jf;
