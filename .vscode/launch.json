@@ -2,6 +2,14 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch BankController",
+            "request": "launch",
+            "mainClass": "bank.BankController",
+            "projectName": "Lab15_OOP_fc166bd2",
+            "vmArgs": "-enableassertions"
+        },
+        {
+            "type": "java",
             "name": "Launch GUI2",
             "request": "launch",
             "mainClass": "GUI.GUI2",
@@ -50,14 +58,7 @@
             "projectName": "Lab15_OOP_90898795",
             "liveshare.allowGuestDebugControl": true
         },
-        {
-            "type": "java",
-            "name": "Launch BankController",
-            "request": "launch",
-            "mainClass": "bank.BankController",
-            "projectName": "Lab15_OOP_90898795",
-            "vmArgs": "-enableassertions"
-        }
+
     ]
 }
 
