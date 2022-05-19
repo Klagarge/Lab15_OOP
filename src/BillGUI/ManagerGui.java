@@ -79,6 +79,7 @@ public class ManagerGui extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e){
                 Jf.dispose();
+                System.exit(0);
             };
         });
         
